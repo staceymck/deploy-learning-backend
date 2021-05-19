@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
   resources :comments
-  root 'welcome#index'
+  root 'welcome#home'
 end
