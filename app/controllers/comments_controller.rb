@@ -16,6 +16,7 @@ class CommentsController < ApplicationController
   # POST /comments
   def create
     @comment = Comment.new(comment_params)
+    @comment.avatar = Faker::Avatar.image
 
     if @comment.save
       render json: @comment, status: :created, location: @comment
@@ -46,6 +47,6 @@ class CommentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def comment_params
-      params.require(:comment).permit(:username, :content, :avatar)
+      params.require(:comment).permit(:username, :content)
     end
 end
